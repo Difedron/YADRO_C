@@ -1,0 +1,5 @@
+# Preserve test files byte-for-byte, regardless of core.autocrlf.
+open-tests/** -text
+yadro_120_tests/** -text
+*.in binary
+*.out binary
