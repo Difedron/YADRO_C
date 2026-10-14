@@ -1,0 +1,16 @@
+# Local builds and compiler output
+/solution
+/solution-debug
+/build/
+/cmake-build-*/
+*.o
+*.dSYM/
+
+# Editor, OS and Python caches
+/.idea/
+.DS_Store
+__pycache__/
+*.py[cod]
+
+# Output from the README example
+/result.bin

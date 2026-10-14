@@ -1,0 +1,121 @@
+id,name,kind,description,expected_rc,h,w,kh,kw,input_file,output_file
+1,001_scalar_zero,valid,"1x1, zero pixel, identity kernel",0,1,1,1,1,cases/001_scalar_zero.in,cases/001_scalar_zero.out
+2,002_scalar_255,valid,"1x1, all channels 255, identity kernel",0,1,1,1,1,cases/002_scalar_255.in,cases/002_scalar_255.out
+3,003_scalar_negative,valid,"1x1, signed -1 kernel",0,1,1,1,1,cases/003_scalar_negative.in,cases/003_scalar_negative.out
+4,004_scalar_min_coeff,valid,"1x1, D=-128",0,1,1,1,1,cases/004_scalar_min_coeff.in,cases/004_scalar_min_coeff.out
+5,005_scalar_max_coeff,valid,"1x1, D=127",0,1,1,1,1,cases/005_scalar_max_coeff.in,cases/005_scalar_max_coeff.out
+6,006_scalar_zero_kernel,valid,"1x1, D=0",0,1,1,1,1,cases/006_scalar_zero_kernel.in,cases/006_scalar_zero_kernel.out
+7,007_zero_both_dims,valid,"H=0,W=0, valid kernel still present",0,0,0,1,1,cases/007_zero_both_dims.in,cases/007_zero_both_dims.out
+8,008_zero_height,valid,"H=0,W=5, 3x3 kernel",0,0,5,3,3,cases/008_zero_height.in,cases/008_zero_height.out
+9,009_zero_width,valid,"H=5,W=0, 1x3 kernel",0,5,0,1,3,cases/009_zero_width.in,cases/009_zero_width.out
+10,010_one_by_two,valid,1x2 identity,0,1,2,1,1,cases/010_one_by_two.in,cases/010_one_by_two.out
+11,011_two_by_one,valid,2x1 identity,0,2,1,1,1,cases/011_two_by_one.in,cases/011_two_by_one.out
+12,012_one_by_five,valid,1x5 identity ramp,0,1,5,1,1,cases/012_one_by_five.in,cases/012_one_by_five.out
+13,013_five_by_one,valid,5x1 identity ramp,0,5,1,1,1,cases/013_five_by_one.in,cases/013_five_by_one.out
+14,014_two_by_two,valid,2x2 identity,0,2,2,1,1,cases/014_two_by_two.in,cases/014_two_by_two.out
+15,015_three_by_three,valid,3x3 identity,0,3,3,1,1,cases/015_three_by_three.in,cases/015_three_by_three.out
+16,016_rect_identity,valid,"4x7 identity, varied channels",0,4,7,1,1,cases/016_rect_identity.in,cases/016_rect_identity.out
+17,017_mixed_channels,valid,2x3 independent A/B/C,0,2,3,1,1,cases/017_mixed_channels.in,cases/017_mixed_channels.out
+18,018_all_max,valid,3x2 all 255,0,3,2,1,1,cases/018_all_max.in,cases/018_all_max.out
+19,019_checker,valid,3x4 checkerboard channels,0,3,4,1,1,cases/019_checker.in,cases/019_checker.out
+20,020_channel_ramps,valid,7x6 three distinct ramps,0,7,6,1,1,cases/020_channel_ramps.in,cases/020_channel_ramps.out
+21,021_1x1_k3,valid,"1x1 with 3x3 kernel, only center contributes",0,1,1,3,3,cases/021_1x1_k3.in,cases/021_1x1_k3.out
+22,022_1x1_k5_asym,valid,1x1 with asymmetric 5x5 kernel,0,1,1,5,5,cases/022_1x1_k5_asym.in,cases/022_1x1_k5_asym.out
+23,023_row_k1x3,valid,1x4 with 1x3 kernel,0,1,4,1,3,cases/023_row_k1x3.in,cases/023_row_k1x3.out
+24,024_row_kernel_larger,valid,1x4 with 1x7 kernel larger than row,0,1,4,1,7,cases/024_row_kernel_larger.in,cases/024_row_kernel_larger.out
+25,025_col_k3x1,valid,4x1 with 3x1 kernel,0,4,1,3,1,cases/025_col_k3x1.in,cases/025_col_k3x1.out
+26,026_col_kernel_larger,valid,4x1 with 7x1 kernel larger than column,0,4,1,7,1,cases/026_col_kernel_larger.in,cases/026_col_kernel_larger.out
+27,027_2x2_k3,valid,2x2 with 3x3 all-ones padding,0,2,2,3,3,cases/027_2x2_k3.in,cases/027_2x2_k3.out
+28,028_2x3_k5x3,valid,kernel taller than image,0,2,3,5,3,cases/028_2x3_k5x3.in,cases/028_2x3_k5x3.out
+29,029_3x2_k3x5,valid,kernel wider than image,0,3,2,3,5,cases/029_3x2_k3x5.in,cases/029_3x2_k3x5.out
+30,030_3x3_k5,valid,5x5 kernel larger both ways,0,3,3,5,5,cases/030_3x3_k5.in,cases/030_3x3_k5.out
+31,031_kernel_impulse_tl,valid,3x3 kernel impulse tl; detects accidental flip,0,4,5,3,3,cases/031_kernel_impulse_tl.in,cases/031_kernel_impulse_tl.out
+32,032_kernel_impulse_tr,valid,3x3 kernel impulse tr; detects accidental flip,0,4,5,3,3,cases/032_kernel_impulse_tr.in,cases/032_kernel_impulse_tr.out
+33,033_kernel_impulse_bl,valid,3x3 kernel impulse bl; detects accidental flip,0,4,5,3,3,cases/033_kernel_impulse_bl.in,cases/033_kernel_impulse_bl.out
+34,034_kernel_impulse_br,valid,3x3 kernel impulse br; detects accidental flip,0,4,5,3,3,cases/034_kernel_impulse_br.in,cases/034_kernel_impulse_br.out
+35,035_asym_k3x3,valid,asymmetric 3x3 signed kernel,0,4,4,3,3,cases/035_asym_k3x3.in,cases/035_asym_k3x3.out
+36,036_asym_k3x5,valid,asymmetric 3x5 kernel,0,4,6,3,5,cases/036_asym_k3x5.in,cases/036_asym_k3x5.out
+37,037_asym_k5x3,valid,asymmetric 5x3 kernel,0,6,4,5,3,cases/037_asym_k5x3.in,cases/037_asym_k5x3.out
+38,038_row_asym,valid,1x7 asymmetric 1x5,0,1,7,1,5,cases/038_row_asym.in,cases/038_row_asym.out
+39,039_col_asym,valid,7x1 asymmetric 5x1,0,7,1,5,1,cases/039_col_asym.in,cases/039_col_asym.out
+40,040_image_impulse_corner,valid,"input impulse at top-left, 3x3 kernel",0,5,5,3,3,cases/040_image_impulse_corner.in,cases/040_image_impulse_corner.out
+41,041_image_impulse_center,valid,"input impulse at center, no-flip detector",0,5,5,3,3,cases/041_image_impulse_center.in,cases/041_image_impulse_center.out
+42,042_top_edge_signal,valid,nonzero top edge exercises vertical padding,0,3,6,5,3,cases/042_top_edge_signal.in,cases/042_top_edge_signal.out
+43,043_left_edge_signal,valid,nonzero left edge exercises horizontal padding,0,6,3,3,5,cases/043_left_edge_signal.in,cases/043_left_edge_signal.out
+44,044_kernel_7x9_gt_image,valid,7x9 kernel on 3x4 image,0,3,4,7,9,cases/044_kernel_7x9_gt_image.in,cases/044_kernel_7x9_gt_image.out
+45,045_kernel_11x13_gt_2x2,valid,11x13 kernel on 2x2 image,0,2,2,11,13,cases/045_kernel_11x13_gt_2x2.in,cases/045_kernel_11x13_gt_2x2.out
+46,046_sum_0,valid,exact scalar arithmetic boundary: sum_0,0,1,1,1,1,cases/046_sum_0.in,cases/046_sum_0.out
+47,047_sum_1,valid,exact scalar arithmetic boundary: sum_1,0,1,1,1,1,cases/047_sum_1.in,cases/047_sum_1.out
+48,048_sum_240,valid,exact scalar arithmetic boundary: sum_240,0,1,1,1,1,cases/048_sum_240.in,cases/048_sum_240.out
+49,049_sum_241,valid,exact scalar arithmetic boundary: sum_241,0,1,1,1,1,cases/049_sum_241.in,cases/049_sum_241.out
+50,050_sum_250,valid,exact scalar arithmetic boundary: sum_250,0,1,1,1,1,cases/050_sum_250.in,cases/050_sum_250.out
+51,051_sum_251,valid,exact scalar arithmetic boundary: sum_251,0,1,1,1,1,cases/051_sum_251.in,cases/051_sum_251.out
+52,052_sum_255,valid,exact scalar arithmetic boundary: sum_255,0,1,1,1,1,cases/052_sum_255.in,cases/052_sum_255.out
+53,053_sum_neg1,valid,exact scalar arithmetic boundary: sum_neg1,0,1,1,1,1,cases/053_sum_neg1.in,cases/053_sum_neg1.out
+54,054_sum_neg240,valid,exact scalar arithmetic boundary: sum_neg240,0,1,1,1,1,cases/054_sum_neg240.in,cases/054_sum_neg240.out
+55,055_sum_neg241,valid,exact scalar arithmetic boundary: sum_neg241,0,1,1,1,1,cases/055_sum_neg241.in,cases/055_sum_neg241.out
+56,056_sum_neg242,valid,exact scalar arithmetic boundary: sum_neg242,0,1,1,1,1,cases/056_sum_neg242.in,cases/056_sum_neg242.out
+57,057_sum_256,valid,two positive contributions can cross 255 to exactly 256,0,1,2,1,3,cases/057_sum_256.in,cases/057_sum_256.out
+58,058_sum_257,valid,exact 257 at left output,0,1,2,1,3,cases/058_sum_257.in,cases/058_sum_257.out
+59,059_sum_501,valid,250+251 positive accumulation,0,1,2,1,3,cases/059_sum_501.in,cases/059_sum_501.out
+60,060_sum_502_mod0,valid,502 % 251 == 0,0,1,2,1,3,cases/060_sum_502_mod0.in,cases/060_sum_502_mod0.out
+61,061_sum_503_mod1,valid,503 % 251 == 1,0,1,2,1,3,cases/061_sum_503_mod1.in,cases/061_sum_503_mod1.out
+62,062_neg482_mod0,valid,-482 => 482 % 241 == 0,0,1,2,1,3,cases/062_neg482_mod0.in,cases/062_neg482_mod0.out
+63,063_neg483_mod1,valid,-483 => 483 % 241 == 1,0,1,2,1,3,cases/063_neg483_mod1.in,cases/063_neg483_mod1.out
+64,064_max_positive_product,valid,255*127 single-product extreme,0,1,1,1,1,cases/064_max_positive_product.in,cases/064_max_positive_product.out
+65,065_max_negative_product,valid,255*(-128) single-product extreme,0,1,1,1,1,cases/065_max_negative_product.in,cases/065_max_negative_product.out
+66,066_cancel_zero,valid,100-200+100 = 0 at center,0,1,3,1,3,cases/066_cancel_zero.in,cases/066_cancel_zero.out
+67,067_cancel_plus1,valid,100-199+100 = 1,0,1,3,1,3,cases/067_cancel_plus1.in,cases/067_cancel_plus1.out
+68,068_cancel_minus1,valid,100-201+100 = -1,0,1,3,1,3,cases/068_cancel_minus1.in,cases/068_cancel_minus1.out
+69,069_extreme_coeff_mix,valid,kernel includes both -128 and 127,0,2,3,3,3,cases/069_extreme_coeff_mix.in,cases/069_extreme_coeff_mix.out
+70,070_all255_all127,valid,"3x3 all-255 image, all +127 kernel",0,3,3,3,3,cases/070_all255_all127.in,cases/070_all255_all127.out
+71,071_all255_allneg128,valid,"3x3 all-255 image, all -128 kernel",0,3,3,3,3,cases/071_all255_allneg128.in,cases/071_all255_allneg128.out
+72,072_alternating_kernel_signs,valid,alternating signed kernel,0,5,5,5,5,cases/072_alternating_kernel_signs.in,cases/072_alternating_kernel_signs.out
+73,073_alternating_pixels,valid,0/255 alternating pixels with signed kernel,0,5,6,3,5,cases/073_alternating_pixels.in,cases/073_alternating_pixels.out
+74,074_channels_different_signs,valid,same position yields positive/negative/zero-ish channel sums,0,1,3,1,3,cases/074_channels_different_signs.in,cases/074_channels_different_signs.out
+75,075_channels_different_modulo,valid,three channels deliberately cross modulo rules differently,0,2,2,3,3,cases/075_channels_different_modulo.in,cases/075_channels_different_modulo.out
+76,076_random_4x6_k1x5,valid,fixed-seed differential random case 1; full signed coefficient range,0,4,6,1,5,cases/076_random_4x6_k1x5.in,cases/076_random_4x6_k1x5.out
+77,077_random_5x1_k3x1,valid,fixed-seed differential random case 2; full signed coefficient range,0,5,1,3,1,cases/077_random_5x1_k3x1.in,cases/077_random_5x1_k3x1.out
+78,078_random_7x3_k5x7,valid,fixed-seed differential random case 3; full signed coefficient range,0,7,3,5,7,cases/078_random_7x3_k5x7.in,cases/078_random_7x3_k5x7.out
+79,079_random_7x8_k3x9,valid,fixed-seed differential random case 4; full signed coefficient range,0,7,8,3,9,cases/079_random_7x8_k3x9.in,cases/079_random_7x8_k3x9.out
+80,080_random_5x2_k3x9,valid,fixed-seed differential random case 5; full signed coefficient range,0,5,2,3,9,cases/080_random_5x2_k3x9.in,cases/080_random_5x2_k3x9.out
+81,081_random_6x8_k5x3,valid,fixed-seed differential random case 6; full signed coefficient range,0,6,8,5,3,cases/081_random_6x8_k5x3.in,cases/081_random_6x8_k5x3.out
+82,082_random_4x6_k3x3,valid,fixed-seed differential random case 7; full signed coefficient range,0,4,6,3,3,cases/082_random_4x6_k3x3.in,cases/082_random_4x6_k3x3.out
+83,083_random_3x6_k7x3,valid,fixed-seed differential random case 8; full signed coefficient range,0,3,6,7,3,cases/083_random_3x6_k7x3.in,cases/083_random_3x6_k7x3.out
+84,084_random_3x5_k3x3,valid,fixed-seed differential random case 9; full signed coefficient range,0,3,5,3,3,cases/084_random_3x5_k3x3.in,cases/084_random_3x5_k3x3.out
+85,085_random_4x4_k3x5,valid,fixed-seed differential random case 10; full signed coefficient range,0,4,4,3,5,cases/085_random_4x4_k3x5.in,cases/085_random_4x4_k3x5.out
+86,086_random_7x8_k5x9,valid,fixed-seed differential random case 11; full signed coefficient range,0,7,8,5,9,cases/086_random_7x8_k5x9.in,cases/086_random_7x8_k5x9.out
+87,087_random_7x3_k5x1,valid,fixed-seed differential random case 12; full signed coefficient range,0,7,3,5,1,cases/087_random_7x3_k5x1.in,cases/087_random_7x3_k5x1.out
+88,088_random_7x1_k7x3,valid,fixed-seed differential random case 13; full signed coefficient range,0,7,1,7,3,cases/088_random_7x1_k7x3.in,cases/088_random_7x1_k7x3.out
+89,089_random_7x5_k1x1,valid,fixed-seed differential random case 14; full signed coefficient range,0,7,5,1,1,cases/089_random_7x5_k1x1.in,cases/089_random_7x5_k1x1.out
+90,090_random_4x4_k1x1,valid,fixed-seed differential random case 15; full signed coefficient range,0,4,4,1,1,cases/090_random_4x4_k1x1.in,cases/090_random_4x4_k1x1.out
+91,091_random_5x2_k1x7,valid,fixed-seed differential random case 16; full signed coefficient range,0,5,2,1,7,cases/091_random_5x2_k1x7.in,cases/091_random_5x2_k1x7.out
+92,092_random_1x2_k9x9,valid,fixed-seed differential random case 17; full signed coefficient range,0,1,2,9,9,cases/092_random_1x2_k9x9.in,cases/092_random_1x2_k9x9.out
+93,093_random_6x8_k1x9,valid,fixed-seed differential random case 18; full signed coefficient range,0,6,8,1,9,cases/093_random_6x8_k1x9.in,cases/093_random_6x8_k1x9.out
+94,094_random_6x2_k9x7,valid,fixed-seed differential random case 19; full signed coefficient range,0,6,2,9,7,cases/094_random_6x2_k9x7.in,cases/094_random_6x2_k9x7.out
+95,095_random_3x9_k3x3,valid,fixed-seed differential random case 20; full signed coefficient range,0,3,9,3,3,cases/095_random_3x9_k3x3.in,cases/095_random_3x9_k3x3.out
+96,096_random_4x2_k3x1,valid,fixed-seed differential random case 21; full signed coefficient range,0,4,2,3,1,cases/096_random_4x2_k3x1.in,cases/096_random_4x2_k3x1.out
+97,097_random_8x4_k9x9,valid,fixed-seed differential random case 22; full signed coefficient range,0,8,4,9,9,cases/097_random_8x4_k9x9.in,cases/097_random_8x4_k9x9.out
+98,098_random_4x1_k7x9,valid,fixed-seed differential random case 23; full signed coefficient range,0,4,1,7,9,cases/098_random_4x1_k7x9.in,cases/098_random_4x1_k7x9.out
+99,099_empty_file,invalid_input,empty file: cannot read H,1,,,,,cases/099_empty_file.in,
+100,100_truncated_H,invalid_input,only 1 byte of H,1,,,,,cases/100_truncated_H.in,
+101,101_only_H,invalid_input,"H present, W missing",1,,,,,cases/101_only_H.in,
+102,102_truncated_W,invalid_input,H plus only 2 bytes of W,1,,,,,cases/102_truncated_W.in,
+103,103_truncated_pixels_1x1,invalid_input,H=W=1 but only 2/3 ABC bytes,1,,,,,cases/103_truncated_pixels_1x1.in,
+104,104_truncated_pixels_2x2,invalid_input,2x2 ABC block one byte short,1,,,,,cases/104_truncated_pixels_2x2.in,
+105,105_missing_DH,invalid_input,"matrix complete, DH absent",1,,,,,cases/105_missing_DH.in,
+106,106_missing_DW,invalid_input,"DH present, DW absent",1,,,,,cases/106_missing_DW.in,
+107,107_truncated_D,invalid_input,3x3 D one byte short,1,,,,,cases/107_truncated_D.in,
+108,108_zero_DH,invalid_input,DH=0 should be rejected,1,,,,,cases/108_zero_DH.in,
+109,109_zero_DW,invalid_input,DW=0 should be rejected,1,,,,,cases/109_zero_DW.in,
+110,110_even_DH,invalid_input,even DH should be rejected,1,,,,,cases/110_even_DH.in,
+111,111_even_DW,invalid_input,even DW should be rejected,1,,,,,cases/111_even_DW.in,
+112,112_size_overflow,invalid_input,H=W=UINT32_MAX triggers 3*H*W size overflow on 64-bit,1,,,,,cases/112_size_overflow.in,
+113,113_cli_no_args,cli,no arguments => 10,10,,,,,,
+114,114_cli_only_i,cli,only -i with valid filename => 10,10,,,,,,
+115,115_cli_only_o,cli,only -o with filename => 10,10,,,,,,
+116,116_cli_flag_as_name,cli,-i immediately followed by -o => 10,10,,,,,,
+117,117_missing_input_path,cli,both flags but input file does not exist => EXIT_FAILURE,1,,,,,,
+118,118_missing_output_dir,cli,output parent directory does not exist => EXIT_FAILURE,1,,,,,,
+119,119_leading_dash_filenames,cli,filenames beginning with '-' but not equal to flags are accepted,0,,,,,,
+120,120_same_input_output,cli,input and output may be same path because output opens after read/compute,0,,,,,,
